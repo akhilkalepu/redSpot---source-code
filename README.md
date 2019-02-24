@@ -23,7 +23,7 @@ If you want a playlist for a particular subreddit, let me know at [akhilkalepu@p
 
 [**/r/experimentalmusic : top : week {redSpot}**](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/4RD8FzRk00ScOpfXM4qoDJ?si=cPt5WA2pS-mRiYChBRdspQ) - [www.reddit.com/r/experimentalmusic](https://www.reddit.com/r/experimentalmusic)
 
-![Imgur](https://i.imgur.com/X5NluK4.png)
+![Imgur](https://i.imgur.com/BC0zqsn.png)
 
 **Technologies used:**
 - Python
@@ -59,6 +59,6 @@ In order automate the playlist scripts, I need to get a new access token for Spo
 
 The last step is to go through this table and add the tracks to a playlist using the song IDs. In order to do this, I use Spotify Web API Node to refresh my access token one more time before deleting all the tracks in a specified playlist, collecting the song IDs into a JavaScript array and using the API to add the respective tracks into said playlist. There is a short pause before each subreddit's script runs to ensure I don't overload the API with too many requests. Find the code in add.js.
 
-![Imgur](https://i.imgur.com/BC0zqsn.png)
+![Imgur](https://i.imgur.com/X5NluK4.png)
 
 The final product is a self-updating playlist of the weekly top songs on Reddit! If you have any questions, requests or suggestions, please feel free to contact me at [akhilkalepu@protonmail.com](akhilkalepu@protonmail.com).
