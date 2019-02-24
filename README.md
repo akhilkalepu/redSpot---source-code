@@ -23,7 +23,9 @@ If you want a playlist for a particular subreddit, let me know at [akhilkalepu@p
 
 [**/r/experimentalmusic : top : week {redSpot}**](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/4RD8FzRk00ScOpfXM4qoDJ?si=cPt5WA2pS-mRiYChBRdspQ) - [www.reddit.com/r/experimentalmusic](https://www.reddit.com/r/experimentalmusic)
 
-[**Technologies used:**]
+![Imgur](https://i.imgur.com/X5NluK4.png)
+
+**Technologies used:**
 - Python
     - PRAW Python Reddit API Wrapper
 - Node.js
@@ -53,7 +55,7 @@ The resulting string is used to search Node Spotify API for the track that best 
 
 In order automate the playlist scripts, I need to get a new access token for Spotify's API every hour using a refresh token first obtained on localhost. Spotify's API requires you to manually obtain the initial access and refresh tokens, but the re-authorization process can be automated after that, as long as it's refreshed within one hour. The refresh.js script runs every 60 minutes to ensure the server can access my playlists ever night at 4:30 AM EST.
 
-![Imgur](https://i.imgur.com/4inmPQ7.png)
+![Imgur](https://i.imgur.com/W0TSGDV.png)
 
 The last step is to go through this table and add the tracks to a playlist using the song IDs. In order to do this, I use Spotify Web API Node to refresh my access token one more time before deleting all the tracks in a specified playlist, collecting the song IDs into a JavaScript array and using the API to add the respective tracks into said playlist. There is a short pause before each subreddit's script runs to ensure I don't overload the API with too many requests. Find the code in add.js.
 
