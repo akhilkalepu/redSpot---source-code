@@ -41,11 +41,11 @@ My scripts run on Heroku using the Scheduler add-on. I use Python Reddit API Wra
 
 ![Imgur](https://i.imgur.com/UaDcznz.png)
 
-My initial idea was just to retreive a list of Spotify links for the Reddit posts, so I used the simple Node Spotify API to find the matching tracks. This NPM package can only read Spotify's API, so it doesn't need any authorization.
+My initial idea was just to retreive a list of Spotify links for the Reddit posts, so I used Node Spotify API to find the matching tracks. This NPM package can only read Spotify's API, so it doesn't need any authorization.
 
 ![Imgur](https://i.imgur.com/RpaPDML.png)
 
-At 4:00 AM the script connects the MySQL database and goes through the list of post titles in each subreddit's table. Each title is formatted to remove unnecessary characters, strings stored in [square brackets] and year tags stored in (parantheses) while allowing strings stored in (parantheses) to remain. This is so tags for remixes, live performances and secondary titles are not removed.
+At 4:00 AM the script connects to the MySQL database and goes through the list of post titles in each subreddit's table. Each title is formatted to remove unnecessary characters, strings stored in [square brackets] and year tags stored in (parantheses) while allowing strings stored in (parantheses) to remain. This is so tags for remixes, live performances and secondary titles are not removed.
 
 ![Imgur](https://i.imgur.com/tCVOA75.png)
 
