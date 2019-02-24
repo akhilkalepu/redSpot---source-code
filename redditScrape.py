@@ -4,11 +4,11 @@ import praw
 import config
 
 mydb = mysql.connector.connect(
-    auth_plugin = config.auth_plugin,
-    host = config.host,
-    database = config.database,
-    user = config.user,
-    password = config.passwd
+    auth_plugin=config.auth_plugin,
+    host=config.host,
+    database=config.database,
+    user=config.user,
+    password=config.passwd
 )
 
 myre = re.compile(u'('
@@ -31,9 +31,9 @@ myre = re.compile(u'('
 
 
 reddit = praw.Reddit(
-    client_id = config.client_id,
-    client_secret = config.client_secret,
-    user_agent = config.user_agent
+    client_id=config.client_id,
+    client_secret=config.client_secret,
+    user_agent=config.user_agent
 )
 
 
@@ -43,7 +43,7 @@ reddit = praw.Reddit(
 rMusic = []
 
 for submission in reddit.subreddit('music').top('week'):
-    if submission.link_flair_text == 'music streaming':
+    if submission.link_flair_text == 'music streaming' or submission.link_flair_text == 'video':
         rMusic.append(myre.sub(' ', submission.title))
 
 mycursor = mydb.cursor()
