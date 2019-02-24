@@ -4,26 +4,8 @@ require("dotenv").config();
 var mysql = require("mysql");
 var SpotifyWebApi = require('spotify-web-api-node');
 
-// Setup MySQL
-// =============================================================
-var connection = mysql.createConnection({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE
-});
 
-connection.connect(function (err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
-  removeMusic();
-});
-
-// Spotify-Web-Api-Node
+// Setup MySQL and Spotify-Web-Api-Node
 // =============================================================
 
 var credentials = {
@@ -38,19 +20,34 @@ var refreshToken = 'AQAgFBXoOgCyvuQXVQdDCLG0vvGyC8n_Uv5bZJIdYYtZbhHasiKMfIDIriKN
 
 spotifyApi.setRefreshToken(refreshToken);
 
-// clientId, clientSecret and refreshToken has been set on the api object previous to this call.
-spotifyApi.refreshAccessToken().then(
-  function (data) {
-    console.log('The access token has been refreshed!');
+var connection = mysql.createConnection({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
+});
 
-    // Save the access token so that it's used in future calls, then add music
-    spotifyApi.setAccessToken(data.body['access_token']);
-
-  },
-  function (err) {
-    console.log('Could not refresh access token', err);
+connection.connect(function (err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
   }
-);
+  console.log("connected as id " + connection.threadId);
+  // clientId, clientSecret and refreshToken has been set on the api object previous to this call.
+  spotifyApi.refreshAccessToken().then(
+    function (data) {
+      console.log('The access token has been refreshed!');
+
+      // Save the access token so that it's used in future calls, then add music
+      spotifyApi.setAccessToken(data.body['access_token']);
+      removeMusic();
+    },
+    function (err) {
+      console.log('Could not refresh access token', err);
+    }
+  );
+});
 
 
 // Add Tracks to Playlist
