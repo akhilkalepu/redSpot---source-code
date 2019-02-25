@@ -27,10 +27,11 @@ If you want a playlist for a particular subreddit, let me know at [akhilkalepu@p
 
 **Technologies used:**
 - Python
-    - PRAW Python Reddit API Wrapper
+    - [PRAW Python Reddit API Wrapper](https://praw.readthedocs.io/en/latest/)
 - Node.js
-    - [Node Spotify API](https://www.npmjs.com/package/node-spotify-api)
-    - [Spotify Web API Node](https://www.npmjs.com/package/spotify-web-api-node) 
+    - [Spotify API](https://developer.spotify.com/documentation/web-api/)
+    - [Node Spotify API - NPM Package](https://www.npmjs.com/package/node-spotify-api)
+    - [Spotify Web API Node - NPM Package](https://www.npmjs.com/package/spotify-web-api-node) 
 - MySQL
     - JawsDB
 - Heroku Scheduler
