@@ -50,7 +50,7 @@ At 4:00 AM the script connects to the MySQL database and goes through the list o
 
 ![Imgur](https://i.imgur.com/tCVOA75.png)
 
-The resulting string is used to search Node Spotify API for the track that best matches the post title. Searches that don't return a track are skipped. The API will occasionally return a false match. Once a track is found, it's metadata including song ID are sent to another MySQL table specifically for Spotify information. Find the code in spotify.js.
+The resulting string is used to search Node Spotify API for the track that best matches the post title. Searches that don't return a track are skipped. The API will occasionally return a false match. Once a track is found, its metadata including song ID are sent to another MySQL table specifically for Spotify information. Find the code in spotify.js.
 
 ![Imgur](https://i.imgur.com/iCP44Ps.png)
 
