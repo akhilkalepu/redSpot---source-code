@@ -2,9 +2,6 @@
   "name": "redspot",
   "version": "1.0.0",
   "description": "A series of scripts that updates Spotify playlists with the top voted songs on Reddit.",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Akhil Kalepu",
   "license": "ISC",
   "dependencies": {
