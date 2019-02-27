@@ -21,11 +21,11 @@ connection.connect(function (err) {
         return;
     }
     console.log("connected as id " + connection.threadId);
+    rMusicScrape();
 });
 
 // Scrape Functions
 // =============================================================
-rMusicScrape();
 
 // ---------/r/music scrape---------
 function rMusicScrape() {
@@ -34,21 +34,61 @@ function rMusicScrape() {
         if (err) throw err;
     });
 
+    connection.query("INSERT INTO rMusic (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+        if (err) throw err;
+    });
+
     connection.query("SELECT * FROM rMusicData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
 
+            console.log("-------------------------");
             var query = "'" + res[i].reddit_post + "'";
             console.log(query);
-            var noSquareQuery = query.replace(/\s*\[.*?\]\s*/g, '');
+
+            var noSingQuoteQuery = query.replace(/'/g, '');
+            console.log(noSingQuoteQuery);
+
+            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
             var noDashQuery = noYearQuery.replace(" - ", " ");
             console.log(noDashQuery);
-            var spotifyQuery = noDashQuery.replace(/'/g, '');
+            var no2DashQuery = noDashQuery.replace(" -- ", " ");
+            console.log(no2DashQuery);
+            var noQuoteQuery = no2DashQuery.replace(/"/g, '');
+            console.log(noQuoteQuery);
+
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            console.log(noexpQuery);
+            var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
+
+            // var query = "'" + res[i].reddit_post + "'";
+            // console.log(query);
+
+            // var noBrackTailQuery = query.replace(/(.+?\]).*/, "$1");
+            // console.log(noBrackTailQuery);
+            // var noParenTailQuery = noBrackTailQuery.replace(/(.+?\)).*/, "$1");
+            // console.log(noParenTailQuery);
+            // var noSquareQuery = noParenTailQuery.replace(/\s*\[.*?\]\s*/g, '');
+            // console.log(noSquareQuery)
+            // var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
+            // console.log(noYearQuery);
+            // var noDashQuery = noYearQuery.replace(" - ", " ");
+            // console.log(noDashQuery);
+            // var noExpQuery = noDashQuery.replace("(explicit)", "");
+            // console.log(noExpQuery);
+            // var spotifyQuery = noExpQuery.replace(/'/g, '');
+            // console.log(spotifyQuery);
+
+            console.log("-------------------------");
+
+            const insertRow = res[i].id;
+            console.log("Insert Row: " + insertRow);
+            console.log("-------------------------");
 
             var spotify = new Spotify(keys.spotify);
 
@@ -61,16 +101,19 @@ function rMusicScrape() {
                     console.log("Error occurred: " + err);
                     return;
                 } else {
-                    console.log("-------------------------");
+                    console.log("=========================");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
                     console.log("Track ID: " + data.tracks.items[0].id);
-                    console.log("-------------------------");
+                    console.log("Insert Row: " + insertRow);
+                    console.log("=========================");
 
-                    var sql = "INSERT INTO rMusic (track_id) VALUES " + "('" +
+                    var sql = "UPDATE rMusic SET track_id = '" +
                         data.tracks.items[0].id +
-                        "')";
-                    console.log(sql);
+                        "' WHERE id = '" +
+                        insertRow +
+                        "'";
+                    
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -83,6 +126,7 @@ function rMusicScrape() {
             });
         }
     });
+
     listenToThisPause();
 };
 
@@ -94,21 +138,42 @@ function rListenToThisScrape() {
         if (err) throw err;
     });
 
+    connection.query("INSERT INTO rListenToThis (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+        if (err) throw err;
+    });
+
     connection.query("SELECT * FROM rListenToThisData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
 
+            console.log("-------------------------");
             var query = "'" + res[i].reddit_post + "'";
             console.log(query);
-            var noSquareQuery = query.replace(/\s*\[.*?\]\s*/g, '');
+
+            var noSingQuoteQuery = query.replace(/'/g, '');
+            console.log(noSingQuoteQuery);
+
+            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
             var noDashQuery = noYearQuery.replace(" - ", " ");
             console.log(noDashQuery);
-            var spotifyQuery = noDashQuery.replace(/'/g, '');
+            var no2DashQuery = noDashQuery.replace(" -- ", " ");
+            console.log(no2DashQuery);
+            var noQuoteQuery = no2DashQuery.replace(/"/g, '');
+            console.log(noQuoteQuery);
+
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            console.log(noexpQuery);
+            var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
+            console.log("-------------------------");
+
+            const insertRow = res[i].id;
+            console.log("Insert Row: " + insertRow);
+            console.log("-------------------------");
 
             var spotify = new Spotify(keys.spotify);
 
@@ -121,16 +186,19 @@ function rListenToThisScrape() {
                     console.log("Error occurred: " + err);
                     return;
                 } else {
-                    console.log("-------------------------");
+                    console.log("=========================");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
                     console.log("Track ID: " + data.tracks.items[0].id);
-                    console.log("-------------------------");
+                    console.log("Insert Row: " + insertRow);
+                    console.log("=========================");
 
-                    var sql = "INSERT INTO rListenToThis (track_id) VALUES " + "('" +
+                    var sql = "UPDATE rListenToThis SET track_id = '" +
                         data.tracks.items[0].id +
-                        "')";
-                    console.log(sql);
+                        "' WHERE id = '" +
+                        insertRow +
+                        "'";
+                    
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -143,6 +211,7 @@ function rListenToThisScrape() {
             });
         }
     });
+
     electronicMusicPause();
 };
 
@@ -154,21 +223,42 @@ function rElectronicMusicScrape() {
         if (err) throw err;
     });
 
+    connection.query("INSERT INTO rElectronicMusic (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+        if (err) throw err;
+    });
+
     connection.query("SELECT * FROM rElectronicMusicData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
 
+            console.log("-------------------------");
             var query = "'" + res[i].reddit_post + "'";
             console.log(query);
-            var noSquareQuery = query.replace(/\s*\[.*?\]\s*/g, '');
+
+            var noSingQuoteQuery = query.replace(/'/g, '');
+            console.log(noSingQuoteQuery);
+
+            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
             var noDashQuery = noYearQuery.replace(" - ", " ");
             console.log(noDashQuery);
-            var spotifyQuery = noDashQuery.replace(/'/g, '');
+            var no2DashQuery = noDashQuery.replace(" -- ", " ");
+            console.log(no2DashQuery);
+            var noQuoteQuery = no2DashQuery.replace(/"/g, '');
+            console.log(noQuoteQuery);
+
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            console.log(noexpQuery);
+            var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
+            console.log("-------------------------");
+
+            const insertRow = res[i].id;
+            console.log("Insert Row: " + insertRow);
+            console.log("-------------------------");
 
             var spotify = new Spotify(keys.spotify);
 
@@ -181,16 +271,19 @@ function rElectronicMusicScrape() {
                     console.log("Error occurred: " + err);
                     return;
                 } else {
-                    console.log("-------------------------");
+                    console.log("=========================");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
                     console.log("Track ID: " + data.tracks.items[0].id);
-                    console.log("-------------------------");
+                    console.log("Insert Row: " + insertRow);
+                    console.log("=========================");
 
-                    var sql = "INSERT INTO rElectronicMusic (track_id) VALUES " + "('" +
+                    var sql = "UPDATE rElectronicMusic SET track_id = '" +
                         data.tracks.items[0].id +
-                        "')";
-                    console.log(sql);
+                        "' WHERE id = '" +
+                        insertRow +
+                        "'";
+                    
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -203,6 +296,8 @@ function rElectronicMusicScrape() {
             });
         }
     });
+
+
     hipHopHeadsPause();
 };
 
@@ -214,21 +309,43 @@ function rHipHopHeadsScrape() {
         if (err) throw err;
     });
 
+    connection.query("INSERT INTO rHipHopHeads (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+        if (err) throw err;
+    });
+
     connection.query("SELECT * FROM rHipHopHeadsData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
 
+            console.log("-------------------------");
             var query = "'" + res[i].reddit_post + "'";
             console.log(query);
-            var noSquareQuery = query.replace(/\s*\[.*?\]\s*/g, '');
+
+            var noSingQuoteQuery = query.replace(/'/g, '');
+            console.log(noSingQuoteQuery);
+
+            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
             var noDashQuery = noYearQuery.replace(" - ", " ");
             console.log(noDashQuery);
-            var spotifyQuery = noDashQuery.replace(/'/g, '');
+            var no2DashQuery = noDashQuery.replace(" -- ", " ");
+            console.log(no2DashQuery);
+            var noQuoteQuery = no2DashQuery.replace(/"/g, '');
+            console.log(noQuoteQuery);
+
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            console.log(noexpQuery);
+            var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
+            console.log("-------------------------");
+
+            const insertRow = res[i].id;
+            console.log("Insert Row: " + insertRow);
+            console.log("-------------------------");
+
 
             var spotify = new Spotify(keys.spotify);
 
@@ -241,16 +358,19 @@ function rHipHopHeadsScrape() {
                     console.log("Error occurred: " + err);
                     return;
                 } else {
-                    console.log("-------------------------");
+                    console.log("=========================");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
                     console.log("Track ID: " + data.tracks.items[0].id);
-                    console.log("-------------------------");
+                    console.log("Insert Row: " + insertRow);
+                    console.log("=========================");
 
-                    var sql = "INSERT INTO rHipHopHeads (track_id) VALUES " + "('" +
+                    var sql = "UPDATE rHipHopHeads SET track_id = '" +
                         data.tracks.items[0].id +
-                        "')";
-                    console.log(sql);
+                        "' WHERE id = '" +
+                        insertRow +
+                        "'";
+                    
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -263,6 +383,7 @@ function rHipHopHeadsScrape() {
             });
         }
     });
+
     rockPause();
 };
 
@@ -274,22 +395,43 @@ function rRockScrape() {
         if (err) throw err;
     });
 
+    connection.query("INSERT INTO rRock (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+        if (err) throw err;
+    });
+
     connection.query("SELECT * FROM rRockData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
 
+            console.log("-------------------------");
             var query = "'" + res[i].reddit_post + "'";
             console.log(query);
-            var noSquareQuery = query.replace(/\s*\[.*?\]\s*/g, '');
+
+            var noSingQuoteQuery = query.replace(/'/g, '');
+            console.log(noSingQuoteQuery);
+
+            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
             var noDashQuery = noYearQuery.replace(" - ", " ");
             console.log(noDashQuery);
-            var spotifyQuery = noDashQuery.replace(/'/g, '');
-            console.log(spotifyQuery);
+            var no2DashQuery = noDashQuery.replace(" -- ", " ");
+            console.log(no2DashQuery);
+            var noQuoteQuery = no2DashQuery.replace(/"/g, '');
+            console.log(noQuoteQuery);
 
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            console.log(noexpQuery);
+            var spotifyQuery = noexpQuery.replace("(Explicit)", "");
+            console.log(spotifyQuery);
+            console.log("-------------------------");
+
+            const insertRow = res[i].id;
+            console.log("Insert Row: " + insertRow);
+            console.log("-------------------------");
+            
             var spotify = new Spotify(keys.spotify);
 
             spotify.search({
@@ -301,16 +443,19 @@ function rRockScrape() {
                     console.log("Error occurred: " + err);
                     return;
                 } else {
-                    console.log("-------------------------");
+                    console.log("=========================");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
                     console.log("Track ID: " + data.tracks.items[0].id);
-                    console.log("-------------------------");
+                    console.log("Insert Row: " + insertRow);
+                    console.log("=========================");
 
-                    var sql = "INSERT INTO rRock (track_id) VALUES " + "('" +
+                    var sql = "UPDATE rRock SET track_id = '" +
                         data.tracks.items[0].id +
-                        "')";
-                    console.log(sql);
+                        "' WHERE id = '" +
+                        insertRow +
+                        "'";
+                    
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -323,6 +468,7 @@ function rRockScrape() {
             });
         }
     });
+
     metalPause();
 };
 
@@ -334,21 +480,42 @@ function rMetalScrape() {
         if (err) throw err;
     });
 
+    connection.query("INSERT INTO rMetal (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+        if (err) throw err;
+    });
+
     connection.query("SELECT * FROM rMetalData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
 
+            console.log("-------------------------");
             var query = "'" + res[i].reddit_post + "'";
             console.log(query);
-            var noSquareQuery = query.replace(/\s*\[.*?\]\s*/g, '');
+
+            var noSingQuoteQuery = query.replace(/'/g, '');
+            console.log(noSingQuoteQuery);
+
+            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
             var noDashQuery = noYearQuery.replace(" - ", " ");
             console.log(noDashQuery);
-            var spotifyQuery = noDashQuery.replace(/'/g, '');
+            var no2DashQuery = noDashQuery.replace(" -- ", " ");
+            console.log(no2DashQuery);
+            var noQuoteQuery = no2DashQuery.replace(/"/g, '');
+            console.log(noQuoteQuery);
+
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            console.log(noexpQuery);
+            var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
+            console.log("-------------------------");
+
+            const insertRow = res[i].id;
+            console.log("Insert Row: " + insertRow);
+            console.log("-------------------------");
 
             var spotify = new Spotify(keys.spotify);
 
@@ -361,16 +528,19 @@ function rMetalScrape() {
                     console.log("Error occurred: " + err);
                     return;
                 } else {
-                    console.log("-------------------------");
+                    console.log("=========================");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
                     console.log("Track ID: " + data.tracks.items[0].id);
-                    console.log("-------------------------");
+                    console.log("Insert Row: " + insertRow);
+                    console.log("=========================");
 
-                    var sql = "INSERT INTO rMetal (track_id) VALUES " + "('" +
+                    var sql = "UPDATE rMetal SET track_id = '" +
                         data.tracks.items[0].id +
-                        "')";
-                    console.log(sql);
+                        "' WHERE id = '" +
+                        insertRow +
+                        "'";
+                    
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -383,6 +553,7 @@ function rMetalScrape() {
             });
         }
     });
+
     jazzPause();
 };
 
@@ -394,21 +565,42 @@ function rJazzScrape() {
         if (err) throw err;
     });
 
+    connection.query("INSERT INTO rJazz (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+        if (err) throw err;
+    });
+
     connection.query("SELECT * FROM rJazzData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
 
+            console.log("-------------------------");
             var query = "'" + res[i].reddit_post + "'";
             console.log(query);
-            var noSquareQuery = query.replace(/\s*\[.*?\]\s*/g, '');
+
+            var noSingQuoteQuery = query.replace(/'/g, '');
+            console.log(noSingQuoteQuery);
+
+            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
             var noDashQuery = noYearQuery.replace(" - ", " ");
             console.log(noDashQuery);
-            var spotifyQuery = noDashQuery.replace(/'/g, '');
+            var no2DashQuery = noDashQuery.replace(" -- ", " ");
+            console.log(no2DashQuery);
+            var noQuoteQuery = no2DashQuery.replace(/"/g, '');
+            console.log(noQuoteQuery);
+
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            console.log(noexpQuery);
+            var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
+            console.log("-------------------------");
+
+            const insertRow = res[i].id;
+            console.log("Insert Row: " + insertRow);
+            console.log("-------------------------");
 
             var spotify = new Spotify(keys.spotify);
 
@@ -421,16 +613,19 @@ function rJazzScrape() {
                     console.log("Error occurred: " + err);
                     return;
                 } else {
-                    console.log("-------------------------");
+                    console.log("=========================");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
                     console.log("Track ID: " + data.tracks.items[0].id);
-                    console.log("-------------------------");
+                    console.log("Insert Row: " + insertRow);
+                    console.log("=========================");
 
-                    var sql = "INSERT INTO rJazz (track_id) VALUES " + "('" +
+                    var sql = "UPDATE rJazz SET track_id = '" +
                         data.tracks.items[0].id +
-                        "')";
-                    console.log(sql);
+                        "' WHERE id = '" +
+                        insertRow +
+                        "'";
+                    
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -443,6 +638,7 @@ function rJazzScrape() {
             });
         }
     });
+
     classicalMusicPause();
 };
 
@@ -454,21 +650,42 @@ function rClassicalMusicScrape() {
         if (err) throw err;
     });
 
+    connection.query("INSERT INTO rClassicalMusic (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+        if (err) throw err;
+    });
+
     connection.query("SELECT * FROM rClassicalMusicData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
 
+            console.log("-------------------------");
             var query = "'" + res[i].reddit_post + "'";
             console.log(query);
-            var noSquareQuery = query.replace(/\s*\[.*?\]\s*/g, '');
+
+            var noSingQuoteQuery = query.replace(/'/g, '');
+            console.log(noSingQuoteQuery);
+
+            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
             var noDashQuery = noYearQuery.replace(" - ", " ");
             console.log(noDashQuery);
-            var spotifyQuery = noDashQuery.replace(/'/g, '');
+            var no2DashQuery = noDashQuery.replace(" -- ", " ");
+            console.log(no2DashQuery);
+            var noQuoteQuery = no2DashQuery.replace(/"/g, '');
+            console.log(noQuoteQuery);
+
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            console.log(noexpQuery);
+            var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
+            console.log("-------------------------");
+
+            const insertRow = res[i].id;
+            console.log("Insert Row: " + insertRow);
+            console.log("-------------------------");
 
             var spotify = new Spotify(keys.spotify);
 
@@ -481,16 +698,19 @@ function rClassicalMusicScrape() {
                     console.log("Error occurred: " + err);
                     return;
                 } else {
-                    console.log("-------------------------");
+                    console.log("=========================");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
                     console.log("Track ID: " + data.tracks.items[0].id);
-                    console.log("-------------------------");
+                    console.log("Insert Row: " + insertRow);
+                    console.log("=========================");
 
-                    var sql = "INSERT INTO rClassicalMusic (track_id) VALUES " + "('" +
+                    var sql = "UPDATE rClassicalMusic SET track_id = '" +
                         data.tracks.items[0].id +
-                        "')";
-                    console.log(sql);
+                        "' WHERE id = '" +
+                        insertRow +
+                        "'";
+                    
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -503,6 +723,7 @@ function rClassicalMusicScrape() {
             });
         }
     });
+
     experimentalMusicPause();
 };
 
@@ -514,21 +735,42 @@ function rExperimentalMusicScrape() {
         if (err) throw err;
     });
 
+    connection.query("INSERT INTO rExperimentalMusic (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+        if (err) throw err;
+    });
+
     connection.query("SELECT * FROM rExperimentalMusicData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
 
+            console.log("-------------------------");
             var query = "'" + res[i].reddit_post + "'";
             console.log(query);
-            var noSquareQuery = query.replace(/\s*\[.*?\]\s*/g, '');
+
+            var noSingQuoteQuery = query.replace(/'/g, '');
+            console.log(noSingQuoteQuery);
+
+            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
             var noDashQuery = noYearQuery.replace(" - ", " ");
             console.log(noDashQuery);
-            var spotifyQuery = noDashQuery.replace(/'/g, '');
+            var no2DashQuery = noDashQuery.replace(" -- ", " ");
+            console.log(no2DashQuery);
+            var noQuoteQuery = no2DashQuery.replace(/"/g, '');
+            console.log(noQuoteQuery);
+
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            console.log(noexpQuery);
+            var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
+            console.log("-------------------------");
+
+            const insertRow = res[i].id;
+            console.log("Insert Row: " + insertRow);
+            console.log("-------------------------");
 
             var spotify = new Spotify(keys.spotify);
 
@@ -541,16 +783,19 @@ function rExperimentalMusicScrape() {
                     console.log("Error occurred: " + err);
                     return;
                 } else {
-                    console.log("-------------------------");
+                    console.log("=========================");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
                     console.log("Track ID: " + data.tracks.items[0].id);
-                    console.log("-------------------------");
+                    console.log("Insert Row: " + insertRow);
+                    console.log("=========================");
 
-                    var sql = "INSERT INTO rExperimentalMusic (track_id) VALUES " + "('" +
+                    var sql = "UPDATE rExperimentalMusic SET track_id = '" +
                         data.tracks.items[0].id +
-                        "')";
-                    console.log(sql);
+                        "' WHERE id = '" +
+                        insertRow +
+                        "'";
+                    
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -563,6 +808,7 @@ function rExperimentalMusicScrape() {
             });
         }
     });
+
     exitPause();
 };
 

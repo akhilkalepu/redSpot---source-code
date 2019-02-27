@@ -54,6 +54,11 @@ connection.connect(function (err) {
 // =============================================================
 
 function rMusicAdd() {
+
+  connection.query("DELETE FROM rMusic WHERE track_id = ' '", function (err, res) {
+    if (err) throw err;
+  });
+  
   var addArray = [];
 
   connection.query("SELECT * FROM rMusic", function (err, res) {
@@ -76,6 +81,11 @@ function rMusicAdd() {
 };
 
 function rListenToThisAdd() {
+
+  connection.query("DELETE FROM rListenToThis WHERE track_id = ' '", function (err, res) {
+    if (err) throw err;
+  });
+
   var addArray = [];
 
   connection.query("SELECT * FROM rListenToThis", function (err, res) {
@@ -98,6 +108,11 @@ function rListenToThisAdd() {
 };
 
 function rElectronicMusicAdd() {
+
+  connection.query("DELETE FROM rElectronicMusic WHERE track_id = ' '", function (err, res) {
+    if (err) throw err;
+  });
+
   var addArray = [];
 
   connection.query("SELECT * FROM rElectronicMusic", function (err, res) {
@@ -119,7 +134,12 @@ function rElectronicMusicAdd() {
   });
 };
 
-function rHipHopHeadsAdd() {  
+function rHipHopHeadsAdd() {
+
+  connection.query("DELETE FROM rHipHopHeads WHERE track_id = ' '", function (err, res) {
+    if (err) throw err;
+  });
+
   var addArray = [];
 
   connection.query("SELECT * FROM rHipHopHeads", function (err, res) {
@@ -142,6 +162,11 @@ function rHipHopHeadsAdd() {
 };
 
 function rRockAdd() {
+
+  connection.query("DELETE FROM rRock WHERE track_id = ' '", function (err, res) {
+    if (err) throw err;
+  });
+
   var addArray = [];
 
   connection.query("SELECT * FROM rRock", function (err, res) {
@@ -164,6 +189,11 @@ function rRockAdd() {
 };
 
 function rMetalAdd() {
+
+  connection.query("DELETE FROM rMetal WHERE track_id = ' '", function (err, res) {
+    if (err) throw err;
+  });
+
   var addArray = [];
 
   connection.query("SELECT * FROM rMetal", function (err, res) {
@@ -186,6 +216,11 @@ function rMetalAdd() {
 };
 
 function rJazzAdd() {
+
+  connection.query("DELETE FROM rJazz WHERE track_id = ' '", function (err, res) {
+    if (err) throw err;
+  });
+
   var addArray = [];
 
   connection.query("SELECT * FROM rJazz", function (err, res) {
@@ -208,6 +243,11 @@ function rJazzAdd() {
 };
 
 function rClassicalMusicAdd() {
+
+  connection.query("DELETE FROM rClassicalMusic WHERE track_id = ' '", function (err, res) {
+    if (err) throw err;
+  });
+
   var addArray = [];
 
   connection.query("SELECT * FROM rClassicalMusic", function (err, res) {
@@ -230,6 +270,11 @@ function rClassicalMusicAdd() {
 };
 
 function rExperimentalMusicAdd() {
+
+  connection.query("DELETE FROM rExperimentalMusic WHERE track_id = ' '", function (err, res) {
+    if (err) throw err;
+  });
+
   var addArray = [];
 
   connection.query("SELECT * FROM rExperimentalMusic", function (err, res) {
