@@ -30,15 +30,15 @@ connection.connect(function (err) {
 // ---------/r/music scrape---------
 function rMusicScrape() {
 
-    connection.query("TRUNCATE TABLE rMusic", function (err, res) {
+    connection.query("TRUNCATE TABLE rMusicHot", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("INSERT INTO rMusic (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+    connection.query("INSERT INTO rMusicHot (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("SELECT * FROM rMusicData", function (err, res) {
+    connection.query("SELECT * FROM rMusicHotData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
@@ -90,12 +90,12 @@ function rMusicScrape() {
                     console.log("Insert Row: " + insertRow);
                     console.log("=========================");
 
-                    var sql = "UPDATE rMusic SET track_id = '" +
+                    var sql = "UPDATE rMusicHot SET track_id = '" +
                         data.tracks.items[0].id +
                         "' WHERE id = '" +
                         insertRow +
                         "'";
-                    
+
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -116,15 +116,15 @@ function rMusicScrape() {
 // ---------/r/listentothis scrape---------
 function rListenToThisScrape() {
 
-    connection.query("TRUNCATE TABLE rListenToThis", function (err, res) {
+    connection.query("TRUNCATE TABLE rListenToThisHot", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("INSERT INTO rListenToThis (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+    connection.query("INSERT INTO rListenToThisHot (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("SELECT * FROM rListenToThisData", function (err, res) {
+    connection.query("SELECT * FROM rListenToThisHotData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
@@ -175,12 +175,12 @@ function rListenToThisScrape() {
                     console.log("Insert Row: " + insertRow);
                     console.log("=========================");
 
-                    var sql = "UPDATE rListenToThis SET track_id = '" +
+                    var sql = "UPDATE rListenToThisHot SET track_id = '" +
                         data.tracks.items[0].id +
                         "' WHERE id = '" +
                         insertRow +
                         "'";
-                    
+
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -201,15 +201,15 @@ function rListenToThisScrape() {
 // ---------/r/electronicmusic scrape---------
 function rElectronicMusicScrape() {
 
-    connection.query("TRUNCATE TABLE rElectronicMusic", function (err, res) {
+    connection.query("TRUNCATE TABLE rElectronicMusicHot", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("INSERT INTO rElectronicMusic (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+    connection.query("INSERT INTO rElectronicMusicHot (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("SELECT * FROM rElectronicMusicData", function (err, res) {
+    connection.query("SELECT * FROM rElectronicMusicHotData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
@@ -260,12 +260,12 @@ function rElectronicMusicScrape() {
                     console.log("Insert Row: " + insertRow);
                     console.log("=========================");
 
-                    var sql = "UPDATE rElectronicMusic SET track_id = '" +
+                    var sql = "UPDATE rElectronicMusicHot SET track_id = '" +
                         data.tracks.items[0].id +
                         "' WHERE id = '" +
                         insertRow +
                         "'";
-                    
+
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -287,15 +287,15 @@ function rElectronicMusicScrape() {
 // ---------/r/hiphopheads scrape---------
 function rHipHopHeadsScrape() {
 
-    connection.query("TRUNCATE TABLE rHipHopHeads", function (err, res) {
+    connection.query("TRUNCATE TABLE rHipHopHeadsHot", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("INSERT INTO rHipHopHeads (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+    connection.query("INSERT INTO rHipHopHeadsHot (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("SELECT * FROM rHipHopHeadsData", function (err, res) {
+    connection.query("SELECT * FROM rHipHopHeadsHotData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
@@ -347,12 +347,12 @@ function rHipHopHeadsScrape() {
                     console.log("Insert Row: " + insertRow);
                     console.log("=========================");
 
-                    var sql = "UPDATE rHipHopHeads SET track_id = '" +
+                    var sql = "UPDATE rHipHopHeadsHot SET track_id = '" +
                         data.tracks.items[0].id +
                         "' WHERE id = '" +
                         insertRow +
                         "'";
-                    
+
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -373,15 +373,15 @@ function rHipHopHeadsScrape() {
 // ---------/r/rock scrape---------
 function rRockScrape() {
 
-    connection.query("TRUNCATE TABLE rRock", function (err, res) {
+    connection.query("TRUNCATE TABLE rRockHot", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("INSERT INTO rRock (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+    connection.query("INSERT INTO rRockHot (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("SELECT * FROM rRockData", function (err, res) {
+    connection.query("SELECT * FROM rRockHotData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
@@ -413,7 +413,7 @@ function rRockScrape() {
             const insertRow = res[i].id;
             console.log("Insert Row: " + insertRow);
             console.log("-------------------------");
-            
+
             var spotify = new Spotify(keys.spotify);
 
             spotify.search({
@@ -432,12 +432,12 @@ function rRockScrape() {
                     console.log("Insert Row: " + insertRow);
                     console.log("=========================");
 
-                    var sql = "UPDATE rRock SET track_id = '" +
+                    var sql = "UPDATE rRockHot SET track_id = '" +
                         data.tracks.items[0].id +
                         "' WHERE id = '" +
                         insertRow +
                         "'";
-                    
+
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -458,15 +458,15 @@ function rRockScrape() {
 // ---------/r/metal scrape---------
 function rMetalScrape() {
 
-    connection.query("TRUNCATE TABLE rMetal", function (err, res) {
+    connection.query("TRUNCATE TABLE rMetalHot", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("INSERT INTO rMetal (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+    connection.query("INSERT INTO rMetalHot (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("SELECT * FROM rMetalData", function (err, res) {
+    connection.query("SELECT * FROM rMetalHotData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
@@ -517,12 +517,12 @@ function rMetalScrape() {
                     console.log("Insert Row: " + insertRow);
                     console.log("=========================");
 
-                    var sql = "UPDATE rMetal SET track_id = '" +
+                    var sql = "UPDATE rMetalHot SET track_id = '" +
                         data.tracks.items[0].id +
                         "' WHERE id = '" +
                         insertRow +
                         "'";
-                    
+
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -543,15 +543,15 @@ function rMetalScrape() {
 // ---------/r/jazz scrape---------
 function rJazzScrape() {
 
-    connection.query("TRUNCATE TABLE rJazz", function (err, res) {
+    connection.query("TRUNCATE TABLE rJazzHot", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("INSERT INTO rJazz (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+    connection.query("INSERT INTO rJazzHot (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("SELECT * FROM rJazzData", function (err, res) {
+    connection.query("SELECT * FROM rJazzHotData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
@@ -602,12 +602,12 @@ function rJazzScrape() {
                     console.log("Insert Row: " + insertRow);
                     console.log("=========================");
 
-                    var sql = "UPDATE rJazz SET track_id = '" +
+                    var sql = "UPDATE rJazzHot SET track_id = '" +
                         data.tracks.items[0].id +
                         "' WHERE id = '" +
                         insertRow +
                         "'";
-                    
+
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -628,15 +628,15 @@ function rJazzScrape() {
 // ---------/r/classicalmusic scrape---------
 function rClassicalMusicScrape() {
 
-    connection.query("TRUNCATE TABLE rClassicalMusic", function (err, res) {
+    connection.query("TRUNCATE TABLE rClassicalMusicHot", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("INSERT INTO rClassicalMusic (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+    connection.query("INSERT INTO rClassicalMusicHot (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("SELECT * FROM rClassicalMusicData", function (err, res) {
+    connection.query("SELECT * FROM rClassicalMusicHotData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
@@ -687,12 +687,12 @@ function rClassicalMusicScrape() {
                     console.log("Insert Row: " + insertRow);
                     console.log("=========================");
 
-                    var sql = "UPDATE rClassicalMusic SET track_id = '" +
+                    var sql = "UPDATE rClassicalMusicHot SET track_id = '" +
                         data.tracks.items[0].id +
                         "' WHERE id = '" +
                         insertRow +
                         "'";
-                    
+
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
@@ -713,15 +713,15 @@ function rClassicalMusicScrape() {
 // ---------/r/experimentalmusic scrape---------
 function rExperimentalMusicScrape() {
 
-    connection.query("TRUNCATE TABLE rExperimentalMusic", function (err, res) {
+    connection.query("TRUNCATE TABLE rExperimentalMusicHot", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("INSERT INTO rExperimentalMusic (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
+    connection.query("INSERT INTO rExperimentalMusicHot (track_id) VALUES (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' '), (' ')", function (err, res) {
         if (err) throw err;
     });
 
-    connection.query("SELECT * FROM rExperimentalMusicData", function (err, res) {
+    connection.query("SELECT * FROM rExperimentalMusicHotData", function (err, res) {
         if (err) throw err;
 
         for (i = 0; i < res.length; i++) {
@@ -772,12 +772,12 @@ function rExperimentalMusicScrape() {
                     console.log("Insert Row: " + insertRow);
                     console.log("=========================");
 
-                    var sql = "UPDATE rExperimentalMusic SET track_id = '" +
+                    var sql = "UPDATE rExperimentalMusicHot SET track_id = '" +
                         data.tracks.items[0].id +
                         "' WHERE id = '" +
                         insertRow +
                         "'";
-                    
+
                     connection.query(sql, function (err) {
                         if (err) {
                             console.log("Error occurred: " + err);
