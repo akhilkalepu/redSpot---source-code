@@ -65,6 +65,8 @@ __________________________________________________________
 
 ![Imgur](https://i.imgur.com/BC0zqsn.png)
 
+__________________________________________________________
+
 **Technologies used:**
 - Python
     - [PRAW Python Reddit API Wrapper](https://praw.readthedocs.io/en/latest/)
@@ -76,11 +78,15 @@ __________________________________________________________
     - JawsDB
 - Heroku Scheduler
 
+__________________________________________________________
+
 ![Imgur](https://i.imgur.com/5Cm30cA.png)
 
 My scripts run on Heroku using the Scheduler add-on. I use Python Reddit API Wrapper to scrape the subreddits for the weekly "top" posts as well as the current "hot". The post titles are sent to a MySQL/JawsDB database with a table for each playlist. The /r/music script is also able to filter posts by the "music streaming" or "video" flair, ensuring I only scrape songs instead of news articles and self posts. Find the code in redditScrape.py.
 
 ![Imgur](https://i.imgur.com/UaDcznz.png)
+
+__________________________________________________________
 
 My initial idea was just to retreive a list of Spotify links for the Reddit posts, so I used Node Spotify API to find the matching tracks. This NPM package can only read Spotify's API, so it doesn't need any authorization.
 
@@ -88,17 +94,25 @@ My initial idea was just to retreive a list of Spotify links for the Reddit post
 
 The script then connects to the MySQL database and goes through the list of post titles in each subreddit's table. Each title is formatted to remove unnecessary characters and strings while allowing strings stored in (parantheses) to remain. This is so tags for remixes, live performances and secondary titles are not removed.
 
+__________________________________________________________
+
 ![Imgur](https://i.imgur.com/tCVOA75.png)
 
 The resulting string is used to search Node Spotify API for the track that best matches the post title. Searches that don't return a track are skipped. The API will occasionally return a false match. Once a track is found, its metadata including song ID are sent to another MySQL table specifically for Spotify information. Find the code in spotify.js.
+
+__________________________________________________________
 
 ![Imgur](https://i.imgur.com/iCP44Ps.png)
 
 In order automate the playlist scripts, I need to get a new access token for Spotify's API every hour using a refresh token first obtained on localhost. Spotify's API requires you to manually obtain the initial access and refresh tokens, but the re-authorization process can be automated after that, as long as it's refreshed within one hour. The refresh.js script runs every 60 minutes to ensure the server can always access my playlists.
 
+__________________________________________________________
+
 ![Imgur](https://i.imgur.com/W0TSGDV.png)
 
 The last step is to go through this table and add the tracks to a playlist using the song IDs. In order to do this, I use Spotify Web API Node to refresh my access token one more time before deleting all the tracks in a specified playlist, collecting the song IDs into a JavaScript array and using the API to add the respective tracks into said playlist. There is a short pause before each subreddit's script runs to ensure I don't overload the API with too many requests. Find the code in add.js.
+
+__________________________________________________________
 
 ![Imgur](https://i.imgur.com/X5NluK4.png)
 
