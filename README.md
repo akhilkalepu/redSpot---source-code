@@ -1,7 +1,7 @@
 # redSpot
 A series of scripts that updates Spotify playlists with the top voted songs on Reddit.
 
-The playlists update at 4:30 AM EST. As of now, they are randomly ordered, currently working on getting them ordered by upvotes.
+The playlists update at 4:30 AM EST.
 
 If you want a playlist for a particular subreddit, let me know at [akhilkalepu@protonmail.com](akhilkalepu@protonmail.com).
 
@@ -46,7 +46,7 @@ My initial idea was just to retreive a list of Spotify links for the Reddit post
 
 ![Imgur](https://i.imgur.com/RpaPDML.png)
 
-At 4:00 AM the script connects to the MySQL database and goes through the list of post titles in each subreddit's table. Each title is formatted to remove unnecessary characters, strings stored in [square brackets] and year tags stored in (parantheses) while allowing strings stored in (parantheses) to remain. This is so tags for remixes, live performances and secondary titles are not removed.
+At 4:00 AM the script connects to the MySQL database and goes through the list of post titles in each subreddit's table. Each title is formatted to remove unnecessary characters and strings while allowing strings stored in (parantheses) to remain. This is so tags for remixes, live performances and secondary titles are not removed.
 
 ![Imgur](https://i.imgur.com/tCVOA75.png)
 
