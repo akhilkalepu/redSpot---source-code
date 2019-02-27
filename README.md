@@ -5,7 +5,7 @@ Top playlists update every day at 4:30 AM EST, the Hot playlists update every ho
 
 If you want a playlist for a particular subreddit, let me know at [akhilkalepu@protonmail.com](akhilkalepu@protonmail.com).
 
-________________________________________________________________________________
+__________________________________________________________
 
 [**reddit.com/r/music**](https://www.reddit.com/r/music)
 
@@ -61,7 +61,7 @@ ________________________________________________________________________________
 
 [/r/experimentalmusic : top : week {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/4RD8FzRk00ScOpfXM4qoDJ?si=cPt5WA2pS-mRiYChBRdspQ)
 
-________________________________________________________________________________
+__________________________________________________________
 
 ![Imgur](https://i.imgur.com/BC0zqsn.png)
 
