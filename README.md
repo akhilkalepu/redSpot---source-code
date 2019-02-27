@@ -98,7 +98,7 @@ __________________________________________________________
 
 ![Imgur](https://i.imgur.com/tCVOA75.png)
 
-The resulting string is used to search Node Spotify API for the track that best matches the post title. Searches that don't return a track are skipped. The API will occasionally return a false match. Once a track is found, its metadata including song ID are sent to another MySQL table specifically for Spotify information. Find the code in spotify.js.
+The resulting string is used by Web Spotify API Node for the track that best matches the post title. Searches that don't return a track are skipped. The API will occasionally return a false match. Once a track is found, its song ID is sent to another MySQL table specifically for Spotify information. Find the code in spotify.js.
 
 __________________________________________________________
 
@@ -116,4 +116,4 @@ __________________________________________________________
 
 ![Imgur](https://i.imgur.com/X5NluK4.png)
 
-The final product is a self-updating playlist of the weekly top songs on Reddit! If you have any questions, requests or suggestions, please feel free to contact me at [akhilkalepu@protonmail.com](akhilkalepu@protonmail.com).
+The final product is a self-updating playlist of the top songs on Reddit! If you have any questions, requests or suggestions, please feel free to contact me at [akhilkalepu@protonmail.com](akhilkalepu@protonmail.com).
