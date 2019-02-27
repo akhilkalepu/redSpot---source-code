@@ -45,7 +45,9 @@ function rMusicScrape() {
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
-            var spotifyQuery = noYearQuery.replace(" - ", " ")
+            var noDashQuery = noYearQuery.replace(" - ", " ");
+            console.log(noDashQuery);
+            var spotifyQuery = noDashQuery.replace(/'/g, '');
             console.log(spotifyQuery);
 
             var spotify = new Spotify(keys.spotify);
@@ -62,20 +64,10 @@ function rMusicScrape() {
                     console.log("-------------------------");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
-                    console.log("Album: " + data.tracks.items[0].album.name);
-                    console.log("Preview link: " + data.tracks.items[0].external_urls.spotify);
                     console.log("Track ID: " + data.tracks.items[0].id);
                     console.log("-------------------------");
 
-                    var sql = "INSERT INTO rMusic (song, artist, album, preview_link, track_id) VALUES " + "('" +
-                        data.tracks.items[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.artists[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.name +
-                        "', '" +
-                        data.tracks.items[0].external_urls.spotify +
-                        "', '" +
+                    var sql = "INSERT INTO rMusic (track_id) VALUES " + "('" +
                         data.tracks.items[0].id +
                         "')";
                     console.log(sql);
@@ -113,7 +105,9 @@ function rListenToThisScrape() {
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
-            var spotifyQuery = noYearQuery.replace(" - ", " ")
+            var noDashQuery = noYearQuery.replace(" - ", " ");
+            console.log(noDashQuery);
+            var spotifyQuery = noDashQuery.replace(/'/g, '');
             console.log(spotifyQuery);
 
             var spotify = new Spotify(keys.spotify);
@@ -130,20 +124,10 @@ function rListenToThisScrape() {
                     console.log("-------------------------");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
-                    console.log("Album: " + data.tracks.items[0].album.name);
-                    console.log("Preview link: " + data.tracks.items[0].external_urls.spotify);
                     console.log("Track ID: " + data.tracks.items[0].id);
                     console.log("-------------------------");
 
-                    var sql = "INSERT INTO rListenToThis (song, artist, album, preview_link, track_id) VALUES " + "('" +
-                        data.tracks.items[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.artists[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.name +
-                        "', '" +
-                        data.tracks.items[0].external_urls.spotify +
-                        "', '" +
+                    var sql = "INSERT INTO rListenToThis (track_id) VALUES " + "('" +
                         data.tracks.items[0].id +
                         "')";
                     console.log(sql);
@@ -181,7 +165,9 @@ function rElectronicMusicScrape() {
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
-            var spotifyQuery = noYearQuery.replace(" - ", " ")
+            var noDashQuery = noYearQuery.replace(" - ", " ");
+            console.log(noDashQuery);
+            var spotifyQuery = noDashQuery.replace(/'/g, '');
             console.log(spotifyQuery);
 
             var spotify = new Spotify(keys.spotify);
@@ -198,20 +184,10 @@ function rElectronicMusicScrape() {
                     console.log("-------------------------");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
-                    console.log("Album: " + data.tracks.items[0].album.name);
-                    console.log("Preview link: " + data.tracks.items[0].external_urls.spotify);
                     console.log("Track ID: " + data.tracks.items[0].id);
                     console.log("-------------------------");
 
-                    var sql = "INSERT INTO rElectronicMusic (song, artist, album, preview_link, track_id) VALUES " + "('" +
-                        data.tracks.items[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.artists[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.name +
-                        "', '" +
-                        data.tracks.items[0].external_urls.spotify +
-                        "', '" +
+                    var sql = "INSERT INTO rElectronicMusic (track_id) VALUES " + "('" +
                         data.tracks.items[0].id +
                         "')";
                     console.log(sql);
@@ -249,7 +225,9 @@ function rHipHopHeadsScrape() {
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
-            var spotifyQuery = noYearQuery.replace(" - ", " ")
+            var noDashQuery = noYearQuery.replace(" - ", " ");
+            console.log(noDashQuery);
+            var spotifyQuery = noDashQuery.replace(/'/g, '');
             console.log(spotifyQuery);
 
             var spotify = new Spotify(keys.spotify);
@@ -266,20 +244,10 @@ function rHipHopHeadsScrape() {
                     console.log("-------------------------");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
-                    console.log("Album: " + data.tracks.items[0].album.name);
-                    console.log("Preview link: " + data.tracks.items[0].external_urls.spotify);
                     console.log("Track ID: " + data.tracks.items[0].id);
                     console.log("-------------------------");
 
-                    var sql = "INSERT INTO rHipHopHeads (song, artist, album, preview_link, track_id) VALUES " + "('" +
-                        data.tracks.items[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.artists[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.name +
-                        "', '" +
-                        data.tracks.items[0].external_urls.spotify +
-                        "', '" +
+                    var sql = "INSERT INTO rHipHopHeads (track_id) VALUES " + "('" +
                         data.tracks.items[0].id +
                         "')";
                     console.log(sql);
@@ -317,7 +285,9 @@ function rRockScrape() {
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
-            var spotifyQuery = noYearQuery.replace(" - ", " ")
+            var noDashQuery = noYearQuery.replace(" - ", " ");
+            console.log(noDashQuery);
+            var spotifyQuery = noDashQuery.replace(/'/g, '');
             console.log(spotifyQuery);
 
             var spotify = new Spotify(keys.spotify);
@@ -334,20 +304,10 @@ function rRockScrape() {
                     console.log("-------------------------");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
-                    console.log("Album: " + data.tracks.items[0].album.name);
-                    console.log("Preview link: " + data.tracks.items[0].external_urls.spotify);
                     console.log("Track ID: " + data.tracks.items[0].id);
                     console.log("-------------------------");
 
-                    var sql = "INSERT INTO rRock (song, artist, album, preview_link, track_id) VALUES " + "('" +
-                        data.tracks.items[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.artists[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.name +
-                        "', '" +
-                        data.tracks.items[0].external_urls.spotify +
-                        "', '" +
+                    var sql = "INSERT INTO rRock (track_id) VALUES " + "('" +
                         data.tracks.items[0].id +
                         "')";
                     console.log(sql);
@@ -385,7 +345,9 @@ function rMetalScrape() {
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
-            var spotifyQuery = noYearQuery.replace(" - ", " ")
+            var noDashQuery = noYearQuery.replace(" - ", " ");
+            console.log(noDashQuery);
+            var spotifyQuery = noDashQuery.replace(/'/g, '');
             console.log(spotifyQuery);
 
             var spotify = new Spotify(keys.spotify);
@@ -402,20 +364,10 @@ function rMetalScrape() {
                     console.log("-------------------------");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
-                    console.log("Album: " + data.tracks.items[0].album.name);
-                    console.log("Preview link: " + data.tracks.items[0].external_urls.spotify);
                     console.log("Track ID: " + data.tracks.items[0].id);
                     console.log("-------------------------");
 
-                    var sql = "INSERT INTO rMetal (song, artist, album, preview_link, track_id) VALUES " + "('" +
-                        data.tracks.items[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.artists[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.name +
-                        "', '" +
-                        data.tracks.items[0].external_urls.spotify +
-                        "', '" +
+                    var sql = "INSERT INTO rMetal (track_id) VALUES " + "('" +
                         data.tracks.items[0].id +
                         "')";
                     console.log(sql);
@@ -453,7 +405,9 @@ function rJazzScrape() {
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
-            var spotifyQuery = noYearQuery.replace(" - ", " ")
+            var noDashQuery = noYearQuery.replace(" - ", " ");
+            console.log(noDashQuery);
+            var spotifyQuery = noDashQuery.replace(/'/g, '');
             console.log(spotifyQuery);
 
             var spotify = new Spotify(keys.spotify);
@@ -470,20 +424,10 @@ function rJazzScrape() {
                     console.log("-------------------------");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
-                    console.log("Album: " + data.tracks.items[0].album.name);
-                    console.log("Preview link: " + data.tracks.items[0].external_urls.spotify);
                     console.log("Track ID: " + data.tracks.items[0].id);
                     console.log("-------------------------");
 
-                    var sql = "INSERT INTO rJazz (song, artist, album, preview_link, track_id) VALUES " + "('" +
-                        data.tracks.items[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.artists[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.name +
-                        "', '" +
-                        data.tracks.items[0].external_urls.spotify +
-                        "', '" +
+                    var sql = "INSERT INTO rJazz (track_id) VALUES " + "('" +
                         data.tracks.items[0].id +
                         "')";
                     console.log(sql);
@@ -521,7 +465,9 @@ function rClassicalMusicScrape() {
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
-            var spotifyQuery = noYearQuery.replace(" - ", " ")
+            var noDashQuery = noYearQuery.replace(" - ", " ");
+            console.log(noDashQuery);
+            var spotifyQuery = noDashQuery.replace(/'/g, '');
             console.log(spotifyQuery);
 
             var spotify = new Spotify(keys.spotify);
@@ -538,20 +484,10 @@ function rClassicalMusicScrape() {
                     console.log("-------------------------");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
-                    console.log("Album: " + data.tracks.items[0].album.name);
-                    console.log("Preview link: " + data.tracks.items[0].external_urls.spotify);
                     console.log("Track ID: " + data.tracks.items[0].id);
                     console.log("-------------------------");
 
-                    var sql = "INSERT INTO rClassicalMusic (song, artist, album, preview_link, track_id) VALUES " + "('" +
-                        data.tracks.items[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.artists[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.name +
-                        "', '" +
-                        data.tracks.items[0].external_urls.spotify +
-                        "', '" +
+                    var sql = "INSERT INTO rClassicalMusic (track_id) VALUES " + "('" +
                         data.tracks.items[0].id +
                         "')";
                     console.log(sql);
@@ -589,7 +525,9 @@ function rExperimentalMusicScrape() {
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
-            var spotifyQuery = noYearQuery.replace(" - ", " ")
+            var noDashQuery = noYearQuery.replace(" - ", " ");
+            console.log(noDashQuery);
+            var spotifyQuery = noDashQuery.replace(/'/g, '');
             console.log(spotifyQuery);
 
             var spotify = new Spotify(keys.spotify);
@@ -606,20 +544,10 @@ function rExperimentalMusicScrape() {
                     console.log("-------------------------");
                     console.log("Song: " + data.tracks.items[0].name);
                     console.log("Artist: " + data.tracks.items[0].album.artists[0].name);
-                    console.log("Album: " + data.tracks.items[0].album.name);
-                    console.log("Preview link: " + data.tracks.items[0].external_urls.spotify);
                     console.log("Track ID: " + data.tracks.items[0].id);
                     console.log("-------------------------");
 
-                    var sql = "INSERT INTO rExperimentalMusic (song, artist, album, preview_link, track_id) VALUES " + "('" +
-                        data.tracks.items[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.artists[0].name +
-                        "', '" +
-                        data.tracks.items[0].album.name +
-                        "', '" +
-                        data.tracks.items[0].external_urls.spotify +
-                        "', '" +
+                    var sql = "INSERT INTO rExperimentalMusic (track_id) VALUES " + "('" +
                         data.tracks.items[0].id +
                         "')";
                     console.log(sql);
