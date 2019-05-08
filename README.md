@@ -7,55 +7,55 @@ If you want a playlist for a particular subreddit, let me know at [akhilkalepu@p
 
 __________________________________________________________
 
-[**reddit.com/r/music**](https://www.reddit.com/r/music)
+[**reddit.com/r/music**](https://www.old.reddit.com/r/music)
 
 [/r/music : 🔥 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/2CZPohRQxO2NErQsGEBT8h?si=l14Fras2QGu7p5DP48t-KQ)
 
 [/r/music : 🔝 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/1ctiKUkDhyPrm3LAMdi9NT?si=hFRdcb_3Ty-k3MNqjHncrQ)
 
-[**reddit.com/r/listentothis**](https://www.reddit.com/r/listentothis)
+[**reddit.com/r/listentothis**](https://www.old.reddit.com/r/listentothis)
 
 [/r/listentothis : 🔥 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/1QPGtNjYnO3d7hg962PwnI?si=hURa2R4mSKiQf7ss8BCEvw)
 
 [/r/listentothis : 🔝 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/4iv3jv8PYdV7LAx8Zmbv5E?si=Af3HSaNrQMWXZU8SS7i4kQ)
 
-[**reddit.com/r/electronicmusic**](https://www.reddit.com/r/listentothis)
+[**reddit.com/r/electronicmusic**](https://www.old.reddit.com/r/electronicmusic)
 
 [/r/electronicmusic : 🔥 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/02dkYME8MMPtK31opR06NL?si=QK4YatwKR0SNntydJTX6iA)
 
 [/r/electronicmusic : 🔝 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/0Vg6ScmYGDS8vHiv7U9yYc?si=2qyNnSy6R9ybn-2FNAaNjg)
 
-[**reddit.com/r/hiphopheads**](https://www.reddit.com/r/listentothis)
+[**reddit.com/r/hiphopheads**](https://www.old.reddit.com/r/hiphopheads)
 
 [/r/hiphopheads : 🔥 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/2wPi9ieieZEcVjA1BOgt9N?si=7pbqkPrJTSewoHd3gmy0SA)
 
 [/r/hiphopheads : 🔝 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/1PRL9w9rQi8wbRpsWlV8qI?si=mq8YhOQIR3WkECs9UPgSnA)
 
-[**reddit.com/r/rock**](https://www.reddit.com/r/listentothis)
+[**reddit.com/r/rock**](https://www.old.reddit.com/r/rock)
 
 [/r/rock : 🔥 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/2vqqqT3oQLks3LBQFWJHGd?si=1OL9kqsZSMCIF-P966LLXQ)
 
 [/r/rock : 🔝 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/6c4V9Wjlkldy0hi2iQQtsg?si=G6hav6QYSiem3-EJf7_F4g)
 
-[**reddit.com/r/metal**](https://www.reddit.com/r/listentothis)
+[**reddit.com/r/metal**](https://www.old.reddit.com/r/metal)
 
 [/r/metal : 🔥 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/2tdTssiHYS6kV1oQQKHwbl?si=XWjNc-n6RIy-0B-IFFfd1Q)
 
 [/r/metal : 🔝 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/09aV5syDUOrGJE2mVc00rJ?si=LtLFDo-ZQfensdt-8EVYrg)
 
-[**reddit.com/r/jazz**](https://www.reddit.com/r/listentothis)
+[**reddit.com/r/jazz**](https://www.old.reddit.com/r/jazz)
 
 [/r/jazz : 🔥 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/2dWDfrB9f3SPDYxeJCid6E?si=GB0SPojfS0eIC6CP3DNxRQ)
 
 [/r/jazz : 🔝 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/73YbPDOPU5ic4bTy1a6CU6?si=qSuFj0zRRj-or461KDoLSQ)
 
-[**reddit.com/r/classicalmusic**](https://www.reddit.com/r/listentothis)
+[**reddit.com/r/classicalmusic**](https://www.old.reddit.com/r/classicalmusic)
 
 [/r/classicalmusic : 🔥 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/0lYSkAWgAGmMHcNLQJHz6A?si=d-DjiJODSuCk55V0t6TMPg)
 
 [/r/classicalmusic : 🔝 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/24ZulCPkNIqD2Ocog8EjKu?si=h-YOBYWRSNyFg9aJpC5Ybg)
 
-[**reddit.com/r/experimentalmusic**](https://www.reddit.com/r/listentothis)
+[**reddit.com/r/experimentalmusic**](https://www.old.reddit.com/r/experimentalmusic)
 
 [/r/experimentalmusic : 🔥 {redSpot}](https://open.spotify.com/user/21mqglmqxuj67hqwceyrxf6ti/playlist/7CFfm9CwJwcP1ezeg6m96a?si=8Il9zN42Qb-0bRhx7iN1gQ)
 
