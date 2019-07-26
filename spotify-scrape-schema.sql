@@ -27,6 +27,10 @@ SELECT * FROM rClassicalMusicHot;
 SELECT * FROM rExperimentalMusic;
 SELECT * FROM rExperimentalMusicHot;
 
+
+-- SELECT * FROM rHipHopHeadsHotData;
+-- DELETE FROM rHipHopHeadsHotData WHERE id='39';
+
 -- TRUNCATE TABLE rMusic;
 
 -- -- =================================

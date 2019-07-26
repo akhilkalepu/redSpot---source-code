@@ -50,7 +50,10 @@ function rMusicScrape() {
             var noSingQuoteQuery = query.replace(/'/g, '');
             console.log(noSingQuoteQuery);
 
-            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
+            var noBadLEAKSquare = noSingQuoteQuery.replace("[LEAK[ ", "");
+            console.log(noBadLEAKSquare);
+
+            var noSquareQuery = noBadLEAKSquare.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
@@ -136,7 +139,10 @@ function rListenToThisScrape() {
             var noSingQuoteQuery = query.replace(/'/g, '');
             console.log(noSingQuoteQuery);
 
-            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
+            var noBadLEAKSquare = noSingQuoteQuery.replace("[LEAK[ ", "");
+            console.log(noBadLEAKSquare);
+
+            var noSquareQuery = noBadLEAKSquare.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
@@ -221,7 +227,10 @@ function rElectronicMusicScrape() {
             var noSingQuoteQuery = query.replace(/'/g, '');
             console.log(noSingQuoteQuery);
 
-            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
+            var noBadLEAKSquare = noSingQuoteQuery.replace("[LEAK[ ", "");
+            console.log(noBadLEAKSquare);
+
+            var noSquareQuery = noBadLEAKSquare.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
@@ -307,7 +316,10 @@ function rHipHopHeadsScrape() {
             var noSingQuoteQuery = query.replace(/'/g, '');
             console.log(noSingQuoteQuery);
 
-            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
+            var noBadLEAKSquare = noSingQuoteQuery.replace("[LEAK[ ", "");
+            console.log(noBadLEAKSquare);
+
+            var noSquareQuery = noBadLEAKSquare.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
@@ -318,13 +330,7 @@ function rHipHopHeadsScrape() {
             var noQuoteQuery = no2DashQuery.replace(/"/g, '');
             console.log(noQuoteQuery);
 
-            var noBadSquare = noQuoteQuery.replace(/\[\d+\[/g, '');
-            console.log(noBadSquare);
-
-            var noBadSquare = noQuoteQuery.replace(/\s*\[.*?\[\s*/g, '');
-            console.log(noBadSquare);
-
-            var noexpQuery = noBadSquare.replace("(explicit)", "");
+            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
             console.log(noexpQuery);
             var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
@@ -399,7 +405,10 @@ function rRockScrape() {
             var noSingQuoteQuery = query.replace(/'/g, '');
             console.log(noSingQuoteQuery);
 
-            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
+            var noBadLEAKSquare = noSingQuoteQuery.replace("[LEAK[ ", "");
+            console.log(noBadLEAKSquare);
+
+            var noSquareQuery = noBadLEAKSquare.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
@@ -484,7 +493,10 @@ function rMetalScrape() {
             var noSingQuoteQuery = query.replace(/'/g, '');
             console.log(noSingQuoteQuery);
 
-            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
+            var noBadLEAKSquare = noSingQuoteQuery.replace("[LEAK[ ", "");
+            console.log(noBadLEAKSquare);
+
+            var noSquareQuery = noBadLEAKSquare.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
@@ -569,7 +581,10 @@ function rJazzScrape() {
             var noSingQuoteQuery = query.replace(/'/g, '');
             console.log(noSingQuoteQuery);
 
-            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
+            var noBadLEAKSquare = noSingQuoteQuery.replace("[LEAK[ ", "");
+            console.log(noBadLEAKSquare);
+
+            var noSquareQuery = noBadLEAKSquare.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
@@ -654,7 +669,10 @@ function rClassicalMusicScrape() {
             var noSingQuoteQuery = query.replace(/'/g, '');
             console.log(noSingQuoteQuery);
 
-            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
+            var noBadLEAKSquare = noSingQuoteQuery.replace("[LEAK[ ", "");
+            console.log(noBadLEAKSquare);
+
+            var noSquareQuery = noBadLEAKSquare.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
@@ -739,7 +757,10 @@ function rExperimentalMusicScrape() {
             var noSingQuoteQuery = query.replace(/'/g, '');
             console.log(noSingQuoteQuery);
 
-            var noSquareQuery = noSingQuoteQuery.replace(/\s*\[.*?\]\s*/g, '');
+            var noBadLEAKSquare = noSingQuoteQuery.replace("[LEAK[ ", "");
+            console.log(noBadLEAKSquare);
+
+            var noSquareQuery = noBadLEAKSquare.replace(/\s*\[.*?\]\s*/g, '');
             console.log(noSquareQuery)
             var noYearQuery = noSquareQuery.replace(/\(\d+\)/g, '');
             console.log(noYearQuery);
