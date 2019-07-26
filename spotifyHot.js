@@ -318,7 +318,10 @@ function rHipHopHeadsScrape() {
             var noQuoteQuery = no2DashQuery.replace(/"/g, '');
             console.log(noQuoteQuery);
 
-            var noexpQuery = noQuoteQuery.replace("(explicit)", "");
+            var noBadSquare = noQuoteQuery.replace(/\s*\[.*?\[\s*/g, '');
+            console.log(noBadSquare);
+
+            var noexpQuery = noBadSquare.replace("(explicit)", "");
             console.log(noexpQuery);
             var spotifyQuery = noexpQuery.replace("(Explicit)", "");
             console.log(spotifyQuery);
